@@ -6,6 +6,11 @@ __pycache__/
 # C extensions
 *.so
 
+# arquivos de extensão sh 
+.sh
+# Arquivos de sessão
+flask_session/
+
 # Distribution / packaging
 .Python
 build/
