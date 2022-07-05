@@ -8,6 +8,7 @@ __pycache__/
 
 # arquivos de extensão sh 
 .sh
+.sh/
 # Arquivos de sessão
 flask_session/
 
