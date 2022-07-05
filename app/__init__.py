@@ -86,6 +86,9 @@ api_key = '''@u20#tesl@2019_n4p@'''
 app.config['SLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("SQLALCHEMY_DATABASE_URI")
+SQLALCHEMY_BINDS = {
+    'db2': os.environ.get("LOCAL")
+}
 db = SQLAlchemy(app,  engine_options={ 'connect_args': { 'connect_timeout': 1400},"pool_recycle": 120})
 engine_container = db.get_engine(app)
 
