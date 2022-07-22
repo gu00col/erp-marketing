@@ -21,19 +21,174 @@
 
 </head>
 
-<body>
-
+<body class="bg-branco" style="height: 100vh;">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="h1">teste</div>
+                <div class="d-none d-md-block">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+
+                    {% for category, message in messages %}
+                    {% if category == 'error'%}
+                    <div class="alert alert-dismissible fade show" id="alert" role="alert" data-mdb-color="danger">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-mdb-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% elif category == 'success'%}
+                    <div class="alert alert-dismissible fade show" id="alert" role="alert" data-mdb-color="success">
+                    
+                        {{ message }}
+                        <button type="button" class="btn-close" data-mdb-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {%endif%}
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                </div>
+                <!-- <div class="d-md-none">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+            
+                    {% for category, message in messages %}
+                    {% if category == 'error'%}
+                    <div class="alert alert-dismissible fade show" id="error_mobile" role="alert"
+                        data-mdb-color="danger">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-mdb-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% elif category == 'success'%}
+                    <div class="alert alert-dismissible fade show" id="success-mobile" role="alert"
+                        data-mdb-color="success">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-mdb-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {%endif%}
+                    {% endfor %}
+                    {% endif %}
+                    
+                    {% endwith %}
+                </div> -->
             </div>
         </div>
     </div>
-   
+    <div class="container-fluid d-flex align-items-center justify-content-center h-100">
+        <div class="row ">
+
+            <div class="col-md-12 p-sm-0">
+                <!-- Alertas -->
+
+
+                <div id="box-login">
+
+                    <div class="login_logo">
+                        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="AS DIGITAL BUSINESS LOGO">
+                    </div>
+                    <div class="login_titulo">
+                        <h1 class="h1">ERP - ACESSO</h1>
+                    </div>
+                    <form id="login_form" action="{{url_for('login')}}" method="post">
+                        <!-- Email input -->
+                        <div class="form-outline mb-4 mt-5">
+                            <input type="email" id="email" name="email" class="form-control form-control-lg" value="luisoliveira@asdigitalb.com" required />
+                            <label class="form-label" for="email">Email</label>
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-4">
+                            <input type="password" id="password" name="password" class="form-control form-control-lg"
+                                required />
+                            <label class="form-label" for="password">Senha</label>
+                        </div>
+
+                        <!-- 2 column grid layout for inline styling -->
+                        <div class="row mb-4">
+                            <div class="col d-flex justify-content-center">
+                                <!-- Checkbox -->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" name="lembrar" id="lembrar"
+                                        checked />
+                                    <label class="form-check-label" for="lembrar"> Manter logado </label>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <!-- Simple link -->
+                                <a href="#!" class="">Esqueceu a senha?</a>
+                            </div>
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-secundaria btn-lg btn-block mb-4">Entrar</button>
+
+                        <!-- Register buttons -->
+                        <div class="text-center">
+                            <p>Não tem conta? <a href="#!">Criar conta</a></p>
+                            <p>Problemas para logar? <a href="#!">Clique aqui</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- MDB Scripts -->
     <script src="{{url_for('static', filename='js/mdb.min.js')}}"></script>
+    <!-- Alerts Scripts -->
+    <script>
+        $('#login_form').on('submit', (e) => {
+            e.preventDefault();
 
+            let btnSubmit = $('#login_form').find('button[type=submit]')
+            // Coloca um spinner no botão
+            btnSubmit.html(`<div class="spinner-border spinner-border-sm text-principal" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                            </div>`)
+            btnSubmit.attr('disabled', 'disabled')
+
+            e.currentTarget.submit()
+
+            console.log('paroutudo')
+        });
+
+
+        mdb.Alert.getInstance(document.getElementById("alert")).update({
+            position: "top-right",
+            delay: 10000,
+            autohide: true,
+            width: "600px",
+            offset: 20,
+            stacking: true,
+            appendToBody: false,
+        });
+        // mdb.Alert.getInstance(document.getElementById("success")).update({
+        //     position: "top-right",
+        //     delay: 10000,
+        //     autohide: true,
+        //     width: "600px",
+        //     offset: 20,
+        //     stacking: true,
+        //     appendToBody: false,
+        // });
+        // mdb.Alert.getInstance(document.getElementById("error_mobile")).update({
+        //     position: "top-center",
+        //     delay: 10000,
+        //     autohide: true,
+        //     width: "100%",
+        //     offset: 20,
+        //     stacking: true,
+        //     appendToBody: false,
+        // });
+        // mdb.Alert.getInstance(document.getElementById("success-mobile")).update({
+        //     position: "top-center",
+        //     delay: 10000,
+        //     autohide: true,
+        //     width: "100%",
+        //     offset: 20,
+        //     stacking: true,
+        //     appendToBody: false,
+        // });
+    </script>
 
 </body>
 

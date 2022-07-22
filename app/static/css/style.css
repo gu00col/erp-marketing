@@ -1,0 +1,139 @@
+/* Fontes */
+@import url(https://fonts.googleapis.com/css?family=Bebas+Neue);
+@import url(https://fonts.googleapis.com/css?family=Poppins);
+@import url(https://fonts.googleapis.com/css?family=Fjalla+One);
+
+/*  font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Fjalla One', sans-serif;
+
+*/
+
+/* Formatação de fontes */
+* {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bebas Neue', sans-serif !important;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6{
+    font-family: 'Bebas Neue', sans-serif !important;
+}
+
+.fs-1, .fs-2, .fs-3, .fs-4, .fs-5, .fs-6 {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+p {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+/* Cores */
+
+/* 
+    Principal : ffc60e
+    Secundaria : 373435
+    Branco : f5f4f4
+
+*/
+
+/* Texto */
+.text-principal {
+    color: #ffc60e !important;
+}
+.text-secundaria {
+    color: #373435 !important;
+}
+.text-branco {
+    color: #f5f4f4 !important;
+}
+/* Fundo */
+.bg-principal {
+    background: #ffc60e !important;
+}
+.bg-secundaria {
+    background: #373435 !important;
+}
+.bg-branco {
+    background: #f5f4f4 !important;
+}
+
+/* Login */
+
+/* Elementos para telas maiores que celular */
+@media (min-width: 576px) { 
+    #box-login {
+        background: #ffffff !important;
+        min-width: 452.48px !important;
+        min-height: 610px !important;
+        /* border-radius: 30px !important; */
+        border-right: 2px solid #ffc60e !important;
+        border-bottom: 2px solid #ffc60e !important;
+    
+        padding-top: 40px !important;
+        padding-right: 30px !important;
+        padding-left: 30px !important;
+        padding-bottom: 30px !important;
+    }  
+}
+
+/* Telas menores que celular*/
+@media (max-width: 575.98px) { 
+
+    .p-sm-0 {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+    #box-login {
+        background: #ffffff !important;
+        /* border-radius: 30px !important; */
+        border-right: 2px solid #ffc60e !important;
+        border-bottom: 2px solid #ffc60e !important;
+    
+        padding-top: 40px !important;
+        padding-right: 30px !important;
+        padding-left: 30px !important;
+        padding-bottom: 30px !important;
+    }
+ }
+
+
+.login_logo {
+    text-align: center !important;
+}
+.login_logo img{
+    
+    width: 149px !important;
+}
+
+.login_titulo {
+    text-align: center !important;
+    
+}
+.login_titulo h1{
+    margin-top: 30px !important;
+}
+
+
+/* Botões */
+
+.btn-principal {
+    background: #ffc60e !important;
+    color: #373435 !important;
+}
+.btn-principal:hover {
+    background: #373435 !important;
+    color: #ffc60e !important;
+}
+
+.btn-secundaria {
+    background: #373435 !important;
+    color: #ffc60e !important;
+}
+.btn-secundaria:hover {
+    background: #ffc60e !important;
+    color: #373435 !important;
+}

@@ -1,4 +1,4 @@
-from app import app, config,mail, Message
+from app import app, config
 from flask import Flask, render_template, request, redirect, session, flash, url_for, jsonify
 import requests
 import simplejson as json
@@ -13,7 +13,8 @@ import datetime
 from datetime import datetime, timedelta
 
 
-@app.route('/', methods=['GET'])
-def index():
-    
-    return render_template('index.html', titulo='Login - ASDIGITAL')
+@app.route('/home', methods=['GET'])
+def home():
+    flash('Invalid password provided', 'error')
+    flash('Logado', 'success')
+    return render_template('home.html', titulo='Home - ASDIGITAL')

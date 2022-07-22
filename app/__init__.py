@@ -14,9 +14,13 @@ from flask_caching import Cache
 from datetime import timedelta
 from flask_mail import Mail, Message
 
+
+#
+
 # Carregamentos de variaveis env
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
+
 
 # loggs
 from logging.config import dictConfig
@@ -86,9 +90,6 @@ api_key = '''@u20#tesl@2019_n4p@'''
 app.config['SLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("SQLALCHEMY_DATABASE_URI")
-SQLALCHEMY_BINDS = {
-    'db2': os.environ.get("LOCAL")
-}
 db = SQLAlchemy(app,  engine_options={ 'connect_args': { 'connect_timeout': 1400},"pool_recycle": 120})
 engine_container = db.get_engine(app)
 
@@ -110,20 +111,32 @@ def data(date, fmt=None):
     format='%d.%m.%y'
     return date.strftime(format) 
 
-# Email
-# mail = Mail()
 
-# app.config['MAIL_SERVER']='servidor'
-# app.config['MAIL_PORT'] = porta
-# app.config['MAIL_USERNAME'] = 'email'
-# app.config['MAIL_PASSWORD'] = 'senha'
-# app.config['MAIL_USE_TLS'] = False
-# app.config['MAIL_USE_SSL'] = True
+# Models
+from app.models.modelsflask import Config, config,configs
 
+# Configs
 
-# mail.init_app(app)
+mail_server = db.session.query(Config).filter_by(chave='MAIL_SERVER').first()
+mail_port = db.session.query(Config).filter_by(chave='MAIL_PORT').first()
+mail_username = db.session.query(Config).filter_by(chave='MAIL_USERNAME').first()
+mail_password = db.session.query(Config).filter_by(chave='MAIL_PASSWORD').first()
+mail_use_tls = db.session.query(Config).filter_by(chave='MAIL_USE_TLS').first()
+mail_use_ssl = db.session.query(Config).filter_by(chave='MAIL_USE_SSL').first()
+
+# MAIL
+mail = Mail()
+app.config['MAIL_SERVER']= mail_server.valor
+app.config['MAIL_PORT'] = mail_port.valor
+app.config['MAIL_USERNAME'] = mail_username.valor
+app.config['MAIL_PASSWORD'] = mail_password.valor
+app.config['MAIL_USE_TLS'] = True if mail_use_tls.valor == 'True' else False
+app.config['MAIL_USE_SSL'] = True if mail_use_ssl.valor == 'True' else False
+
+mail.init_app(app)
+
 
 #           Importando as rotas api
-# from app.controllers.apis import login, auth,first_login, logout, users
+from app.controllers.apis import token
 # Importando as rotas de WebView
-from app.controllers.view import default
+from app.controllers.view import default,home,login
