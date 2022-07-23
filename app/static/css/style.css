@@ -10,9 +10,9 @@
 */
 
 /* Formatação de fontes */
-* {
+/* * {
     font-family: 'Poppins', sans-serif !important;
-}
+} */
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Bebas Neue', sans-serif !important;
@@ -27,6 +27,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
+    font-family: 'Poppins', sans-serif !important;
+}
+nav {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+a {
     font-family: 'Poppins', sans-serif !important;
 }
 

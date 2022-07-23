@@ -15,7 +15,7 @@ from werkzeug.security import generate_password_hash,check_password_hash
 
 
 # Models
-from app.models.modelsflask import User, user, users, UsersPassword, userPassword, userPasswords
+from app.models.modelsflask import User, user, users, UsersPassword, userPassword, userPasswords,UsersRole,userRole,userRoles
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -57,9 +57,20 @@ def login():
             flash('Senha incorreta. Se você se esqueceu sua senha clique em esqueci minha senha.','error')
             return redirect(url_for('index'))
 
-        # Usuario e senha corretos 
+        # Usuario e senha corretos
+
+        consulta_acessos = db.session.query(UsersRole).filter(UsersRole.users_id==consulta_login.id).all()
+        consulta_acessos_json = userRoles.dump(consulta_acessos)
+
+        sessao = {
+            "user_name" : consulta_login.user_name,
+            "name" : consulta_login.name,
+            "email" : consulta_login.email,
+            "user_roles " : consulta_acessos_json
+
+        }
        
-        # session["email"] = request.form.get("email")
-        # session['session'] = valida_acesso[1]
+        session["email"] = consulta_login.email
+        session['session'] = sessao
     
-    return render_template('home.html', titulo='Home - ASDIGITAL')
+        return redirect(url_for('home'))

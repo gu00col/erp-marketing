@@ -15,6 +15,11 @@ from datetime import datetime, timedelta
 
 @app.route('/home', methods=['GET'])
 def home():
-    flash('Invalid password provided', 'error')
-    flash('Logado', 'success')
-    return render_template('home.html', titulo='Home - ASDIGITAL')
+    # Validar Sessão
+    # check if the users exist or not
+    if not session.get("email"):
+        # if not there in the session then redirect to the login page
+        flash('Você não está logado!','error')
+        return redirect("/")
+
+    return render_template('home.html', titulo='Home - ASDIGITAL', session=session.get("session"))

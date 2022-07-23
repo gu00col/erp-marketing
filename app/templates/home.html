@@ -1,122 +1,15 @@
-<!doctype html>
-<html lang="pt-br">
+{%extends 'template.html'%}
+{%block conteudo%}
 
-<head>
-    <title>{{titulo}}</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- CSS Personalizado -->
-    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{url_for('static', filename='css/mdb.min.css')}}" type="text/css">
-    <!-- Fontes Awesome -->
-    <script src="https://kit.fontawesome.com/3a2331ebdf.js" crossorigin="anonymous"></script>
-
-    <!-- Jquery -->
-    <script src="{{url_for('static', filename='js/jquery-3.41.mim.js')}}"></script>
-    <!-- Favico -->
-    <link rel="shortcut icon" href="{{ url_for('static', filename='img/mdb-favicon.ico') }}">
-
-</head>
-
-<body class="bg-branco" style="height: 100vh;">
-
-    <div class="container">
+    <div class="container mt-3">
         <div class="row ">
 
             <div class="col-md-12 p-sm-0">
-                <!-- Alertas -->
-                <div class="d-none d-md-block">
-                    {% with messages = get_flashed_messages(with_categories=true) %}
-                    {% if messages %}
-
-                    {% for category, message in messages %}
-                    {% if category == 'error'%}
-                    <div class="alert alert-dismissible fade show" id="error" role="alert" data-mdb-color="danger">
-                        {{ message }}
-                        <button type="button" class="btn-close" data-mdb-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    {% elif category == 'success'%}
-                    <div class="alert alert-dismissible fade show" id="success" role="alert" data-mdb-color="success">
-                        {{ message }}
-                        <button type="button" class="btn-close" data-mdb-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    {%endif%}
-                    {% endfor %}
-                    {% endif %}
-                    {% endwith %}
-                </div>
-                <div class="d-md-none">
-                    {% with messages = get_flashed_messages(with_categories=true) %}
-                    {% if messages %}
-
-                    {% for category, message in messages %}
-                    {% if category == 'error'%}
-                    <div class="alert alert-dismissible fade show" id="error_mobile" role="alert"
-                        data-mdb-color="danger">
-                        {{ message }}
-                        <button type="button" class="btn-close" data-mdb-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    {% elif category == 'success'%}
-                    <div class="alert alert-dismissible fade show" id="success-mobile" role="alert"
-                        data-mdb-color="success">
-                        {{ message }}
-                        <button type="button" class="btn-close" data-mdb-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    {%endif%}
-                    {% endfor %}
-                    {% endif %}
-                    {% endwith %}
-                </div>
                 <h1>Inicial</h1>
+                <p>{{session.name}}</p>
             </div>
         </div>
     </div>
 
-    <!-- MDB Scripts -->
-    <script src="{{url_for('static', filename='js/mdb.min.js')}}"></script>
-    <!-- Alerts Scripts -->
-    <script>
-        mdb.Alert.getInstance(document.getElementById("error")).update({
-            position: "top-right",
-            delay: 10000,
-            autohide: true,
-            width: "600px",
-            offset: 20,
-            stacking: true,
-            appendToBody: false,
-        });
-        mdb.Alert.getInstance(document.getElementById("success")).update({
-            position: "top-right",
-            delay: 10000,
-            autohide: true,
-            width: "600px",
-            offset: 20,
-            stacking: true,
-            appendToBody: false,
-        });
-        mdb.Alert.getInstance(document.getElementById("error_mobile")).update({
-            position: "top-center",
-            delay: 10000,
-            autohide: true,
-            width: "100%",
-            offset: 20,
-            stacking: true,
-            appendToBody: false,
-        });
-        mdb.Alert.getInstance(document.getElementById("success-mobile")).update({
-            position: "top-center",
-            delay: 10000,
-            autohide: true,
-            width: "100%",
-            offset: 20,
-            stacking: true,
-            appendToBody: false,
-        });
-    </script>
 
-</body>
-
-</html>
+{%endblock%}

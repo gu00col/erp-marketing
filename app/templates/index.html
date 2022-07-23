@@ -6,18 +6,17 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <!-- Fontes Awesome -->
+    <script src="https://kit.fontawesome.com/03908503df.js" crossorigin="anonymous"></script>
     <!-- CSS Personalizado -->
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{url_for('static', filename='css/mdb.min.css')}}" type="text/css">
-    <!-- Fontes Awesome -->
-    <script src="https://kit.fontawesome.com/3a2331ebdf.js" crossorigin="anonymous"></script>
-
     <!-- Jquery -->
     <script src="{{url_for('static', filename='js/jquery-3.41.mim.js')}}"></script>
     <!-- Favico -->
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/mdb-favicon.ico') }}">
+    
 
 </head>
 
@@ -46,29 +45,6 @@
                     {% endif %}
                     {% endwith %}
                 </div>
-                <!-- <div class="d-md-none">
-                    {% with messages = get_flashed_messages(with_categories=true) %}
-                    {% if messages %}
-            
-                    {% for category, message in messages %}
-                    {% if category == 'error'%}
-                    <div class="alert alert-dismissible fade show" id="error_mobile" role="alert"
-                        data-mdb-color="danger">
-                        {{ message }}
-                        <button type="button" class="btn-close" data-mdb-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    {% elif category == 'success'%}
-                    <div class="alert alert-dismissible fade show" id="success-mobile" role="alert"
-                        data-mdb-color="success">
-                        {{ message }}
-                        <button type="button" class="btn-close" data-mdb-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    {%endif%}
-                    {% endfor %}
-                    {% endif %}
-                    
-                    {% endwith %}
-                </div> -->
             </div>
         </div>
     </div>
@@ -119,7 +95,7 @@
                         </div>
 
                         <!-- Submit button -->
-                        <button type="submit" class="btn btn-secundaria btn-lg btn-block mb-4">Entrar</button>
+                        <button type="submit" class="btn btn-secundaria btn-lg btn-block mb-4"><i class="fas fa-door-open me-2"></i>Entrar</button>
 
                         <!-- Register buttons -->
                         <div class="text-center">
@@ -161,35 +137,7 @@
             stacking: true,
             appendToBody: false,
         });
-        // mdb.Alert.getInstance(document.getElementById("success")).update({
-        //     position: "top-right",
-        //     delay: 10000,
-        //     autohide: true,
-        //     width: "600px",
-        //     offset: 20,
-        //     stacking: true,
-        //     appendToBody: false,
-        // });
-        // mdb.Alert.getInstance(document.getElementById("error_mobile")).update({
-        //     position: "top-center",
-        //     delay: 10000,
-        //     autohide: true,
-        //     width: "100%",
-        //     offset: 20,
-        //     stacking: true,
-        //     appendToBody: false,
-        // });
-        // mdb.Alert.getInstance(document.getElementById("success-mobile")).update({
-        //     position: "top-center",
-        //     delay: 10000,
-        //     autohide: true,
-        //     width: "100%",
-        //     offset: 20,
-        //     stacking: true,
-        //     appendToBody: false,
-        // });
     </script>
-
 </body>
 
 </html>

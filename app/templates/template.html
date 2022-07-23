@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <title>{{titulo}}</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Fontes Awesome -->
+    <script src="https://kit.fontawesome.com/03908503df.js" crossorigin="anonymous"></script>
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/mdb.min.css')}}" type="text/css">
+    <!-- Jquery -->
+    <script src="{{url_for('static', filename='js/jquery-3.41.mim.js')}}"></script>
+    <!-- Favico -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/mdb-favicon.ico') }}">
+
+</head>
+
+<body class="bg-branco" style="height: 100vh;">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="z-index: 2000;">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+          <!-- Toggle button -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-mdb-toggle="collapse"
+            data-mdb-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+
+          <!-- Collapsible wrapper -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Navbar brand -->
+            
+            <a class="navbar-brand mt-2 mt-lg-0" href="#">
+              <img
+                src="{{url_for('static', filename='img/logo.png')}}"
+                height="25"
+                alt="AS DIGITAL"
+                loading="lazy"
+              />
+            </a>
+            <!-- Left links -->
+            
+            <!-- Left links -->
+          </div>
+          <!-- Collapsible wrapper -->
+
+          <!-- Right elements -->
+          <div class="d-flex align-items-center">
+            <!-- Icon -->
+
+            <!-- Notifications -->
+            <div class="dropdown">
+              <a
+                class="text-reset me-3 dropdown-toggle hidden-arrow"
+                href="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-mdb-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fas fa-bell"></i>
+                <span class="badge rounded-pill badge-notification bg-danger">1</span>
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <li>
+                  <a class="dropdown-item" href="#">Some news</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Another news</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </div>
+            <!-- Avatar -->
+            <div class="dropdown">
+              <a
+                class="dropdown-toggle  text-secundaria d-flex align-items-center hidden-arrow"
+                href="#"
+                id="navbarDropdownMenuAvatar"
+                role="button"
+                data-mdb-toggle="dropdown"
+                aria-expanded="false"
+              >
+              <div class="fs-6 me-2" id="usuario_logado">
+                {{session.name}}
+              </div>
+                <img
+                  src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+                  class="rounded-circle"
+                  height="25"
+                  alt="Black and White Portrait of a Man"
+                  loading="lazy"
+                />
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="navbarDropdownMenuAvatar"
+              >
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fas fa-user-circle me-2"></i>Minha conta</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Configurações</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i>Sair</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Right elements -->
+        </div>
+        <!-- Container wrapper -->
+      </nav>
+      <!-- Navbar -->
+    <!-- Sidenav-->
+    <div id="slim-toggler">
+    <nav id="sidenav-4" class="sidenav" data-mdb-mode="side" data-mdb-slim="false" data-mdb-slim-collapsed="false"
+        data-mdb-content="#slim-content" style="top:55px;">
+        <ul class="sidenav-menu mt-3" >
+            <li class="sidenav-item">
+                <a class="sidenav-link">
+                    <i class="fas fa-home me-2"></i><span data-mdb-slim="false">Home</span></a>
+            </li>
+            <li class="sidenav-item">
+                <a class="sidenav-link">
+                    <i class="fas fa-users me-2"></i><span data-mdb-slim="false">Clientes</span></a>
+            </li>
+            <li class="sidenav-item">
+                <a class="sidenav-link">
+                    <i class="fas fa-folder-open me-2"></i><span data-mdb-slim="false">Projetos</span></a>
+            </li>
+            <li class="sidenav-item">
+                <a class="sidenav-link">
+                    <i class="fas fa-money-bill me-2"></i><span data-mdb-slim="false">Financeiro</span></a>
+            </li>
+            <li class="sidenav-item">
+                <a class="sidenav-link">
+                    <i class="fas fa-child me-2"></i><span data-mdb-slim="false">Talentos Humanos</span></a>
+            </li>
+            <li class="sidenav-item">
+                <a class="sidenav-link">
+                    <i class="fas fa-cogs me-2"></i><span data-mdb-slim="false">Administrativo</span></a>
+            </li>
+            <!-- <li class="sidenav-item">
+                <a class="sidenav-link"><i class="fas fa-grin me-3"></i><span data-mdb-slim="false">Category
+                        1</span></a>
+                <ul class="sidenav-collapse">
+                    <li class="sidenav-item">
+                        <a class="sidenav-link">Link 2</a>
+                    </li>
+                    <li class="sidenav-item">
+                        <a class="sidenav-link">Link 3</a>
+                    </li>
+                </ul>
+            </li> -->
+        </ul>
+    </nav>
+</div>
+    <!-- Sidenav-->
+
+    <!-- Togglers -->
+    <div id="slim-content">
+        
+        
+        {% block conteudo %} {% endblock%}
+
+    </div>
+    <!-- Togglers -->
+
+
+    <!-- MDB Scripts -->
+    <script src="{{url_for('static', filename='js/mdb.min.js')}}"></script>
+    <script>
+                  //Use show() method to make it instantly visible
+                  const slimInstance = mdb.Sidenav.getInstance(document.getElementById('sidenav-4'));
+
+slimInstance.show();
+
+// document.getElementById('slim-toggler').addEventListener('click', () => {
+//   slimInstance.toggleSlim();
+// })
+
+    </script>
+<script type=text/javascript>
+
+    let session = {{session|tojson}}
+   console.log(session)
+</body>
+
+</html>
