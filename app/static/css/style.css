@@ -144,3 +144,22 @@ a {
     background: #ffc60e !important;
     color: #373435 !important;
 }
+.btn-menu {
+    color: #373435 !important;
+}
+.btn-menu:hover {
+    background: #fff4cf !important;
+    color: #373435 !important;
+}
+
+.btn-hamburger {
+    background: transparent !important;
+    color: #373435 !important;
+    border: 0px !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    font-size: 1rem !important;
+}
+.btn-hamburger:hover {
+    color: #ffc60e !important;
+}

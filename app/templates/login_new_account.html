@@ -61,45 +61,32 @@
                         <img src="{{ url_for('static', filename='img/logo.png') }}" alt="AS DIGITAL BUSINESS LOGO">
                     </div>
                     <div class="login_titulo">
-                        <h1 class="h1">ERP - ACESSO</h1>
+                        <h1 class="h1">Criar uma nova conta</h1>
                     </div>
-                    <form id="login_form" action="{{url_for('login')}}" method="post" autocomplete="off">
+                    <form id="login_form" action="{{url_for('login_new_account')}}" method="post" autocomplete="off">
                         <!-- Email input -->
-                        <div class="form-outline mb-4 mt-5">
-                            <input type="email" id="email" name="email" class="form-control form-control-lg" value="luisoliveira@asdigitalb.com" required autocomplete="off"/>
+                        <div class="form-outline mb-4 mt-3">
+                            <input type="text" id="user_name" name="user_name" class="form-control form-control-lg" value="" required autocomplete="off"/>
+                            <label class="form-label" for="user_name">Nome de usuário</label>
+                        </div>
+                        <div class="form-outline mb-4 mt-3">
+                            <input type="text" id="complet_name" name="complet_name" class="form-control form-control-lg" value="" required autocomplete="off"/>
+                            <label class="form-label" for="complet_name">Nome Completo</label>
+                        </div>
+    
+                        <div class="form-outline mb-4 mt-3">
+                            <input type="email" id="email" name="email" class="form-control form-control-lg" value="" required autocomplete="off"/>
                             <label class="form-label" for="email">Email</label>
                         </div>
 
-                        <!-- Password input -->
-                        <div class="form-outline mb-4">
-                            <input type="password" id="password" name="password" class="form-control form-control-lg"
-                                required autocomplete="off"/>
-                            <label class="form-label" for="password">Senha</label>
-                        </div>
-
-                        <!-- 2 column grid layout for inline styling -->
-                        <div class="row mb-4">
-                            <div class="col d-flex justify-content-center">
-                                <!-- Checkbox -->
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" name="lembrar" id="lembrar"
-                                        checked />
-                                    <label class="form-check-label" for="lembrar"> Manter logado </label>
-                                </div>
-                            </div>
-
-                            <div class="col">
-                                <!-- Simple link -->
-                                <a href="{{url_for('password_recovery')}}" class="">Esqueceu a senha?</a>
-                            </div>
-                        </div>
+            
 
                         <!-- Submit button -->
-                        <button type="submit" class="btn btn-secundaria btn-lg btn-block mb-4"><i class="fas fa-door-open me-2"></i>Entrar</button>
+                        <button type="submit" class="btn btn-secundaria btn-lg btn-block mb-4"><i class="fas fa-door-open me-2"></i>Continuar</button>
 
                         <!-- Register buttons -->
                         <div class="text-center">
-                            <p>Não tem conta? <a href="{{url_for('login_new_account')}}">Criar conta</a></p>
+                            <p><a href="{{url_for('password_recovery')}}">Esqueci minha senha?</a></p>
                             <p>Problemas para logar? <a href="#!">Clique aqui</a></p>
                         </div>
                     </form>
@@ -124,7 +111,6 @@
 
             e.currentTarget.submit()
 
-            console.log('paroutudo')
         });
 
 

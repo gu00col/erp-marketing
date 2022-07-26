@@ -1,4 +1,4 @@
-from app import app, config
+from app import app, config,db
 from flask import Flask, render_template, request, redirect, session, flash, url_for, jsonify
 import requests
 import simplejson as json
@@ -13,6 +13,9 @@ import datetime
 from datetime import datetime, timedelta
 
 
+# Models
+from app.models.modelsflask import Menu, MenuItem, menuItem, menuItems, menu, menus
+
 @app.route('/home', methods=['GET'])
 def home():
     # Validar Sessão
@@ -22,4 +25,9 @@ def home():
         flash('Você não está logado!','error')
         return redirect("/")
 
-    return render_template('home.html', titulo='Home - ASDIGITAL', session=session.get("session"))
+
+    # menus
+
+    consulta_menu_principal = db.session.query(MenuItem).join(Menu, Menu.id == MenuItem.menus_id).filter(Menu.name== 'principal').all()
+
+    return render_template('home.html', titulo='Home - ASDIGITAL', session=session.get("session"),menu_principal=consulta_menu_principal)

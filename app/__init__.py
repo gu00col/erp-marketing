@@ -139,4 +139,4 @@ mail.init_app(app)
 #           Importando as rotas api
 from app.controllers.apis import token
 # Importando as rotas de WebView
-from app.controllers.view import default,home,login
+from app.controllers.view import default,home,login,logout,password_recovery,login_new_account
